@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scoop Bliss - Toko Es Krim Premium</title>
+    <style>
+        /* --- RESET & FONTS --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #fff5f7;
+            color: #4a4a4a;
+            overflow-x: hidden;
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* --- NAVBAR --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(255, 182, 193, 0.2);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ff6b8b;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ff6b8b;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 8%;
+            padding-top: 100px;
+            background: linear-gradient(135deg, #fff5f7 0%, #ffe3e8 100%);
+        }
+
+        .hero-text {
+            max-width: 50%;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            color: #ff477e;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            padding: 15px 35px;
+            background-color: #ff6b8b;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 8px 15px rgba(255, 107, 139, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 20px rgba(255, 107, 139, 0.5);
+            background-color: #ff477e;
+        }
+
+        .hero-image {
+            max-width: 45%;
+            display: flex;
+            justify-content: center;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 400px;
+            filter: drop-shadow(10px 15px 25px rgba(0,0,0,0.15));
+        }
+
+        /* --- MENU SECTION --- */
+        .menu-section {
+            padding: 100px 8%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #ff477e;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .menu-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .menu-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        /* Kelas ini akan dipicu oleh JavaScript saat di-scroll */
+        .menu-card.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .menu-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(255, 182, 193, 0.4);
+        }
+
+        .menu-img-wrapper {
+            overflow: hidden;
+            height: 250px;
+        }
+
+        .menu-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .menu-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .menu-info {
+            padding: 25px;
+        }
+
+        .menu-info h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            color: #ff6b8b;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .btn-order {
+            padding: 8px 20px;
+            background: transparent;
+            border: 2px solid #ff6b8b;
+            color: #ff6b8b;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-order:hover {
+            background: #ff6b8b;
+            color: white;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #ff477e;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header { padding: 20px 5%; }
+            .nav-links { display: none; } /* Sederhana untuk mobile */
+            .hero { flex-direction: column; text-align: center; padding: 120px 5% 50px 5%; }
+            .hero-text { max-width: 100%; order: 2; }
+            .hero-image { max-width: 80%; order: 1; margin-bottom: 40px; }
+            .hero-text h1 { font-size: 2.5rem; }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">🍦 Scoop Bliss</a>
+        <ul class="nav-links">
+            <li><a href="#">Beranda</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#">Tentang Kami</a></li>
+            <li><a href="#">Kontak</a></li>
+        </ul>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Kebahagiaan Nyata di Setiap Sendokan</h1>
+            <p>Dibuat dengan 100% bahan organik premium, buah segar pilihan, dan kasih sayang yang melimpah. Temukan rasa favoritmu hari ini!</p>
+            <a href="#menu" class="btn-cta">Jelajahi Menu</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1501443712940-3de7704645f0?auto=format&fit=crop&q=80&w=600" alt="Es Krim Utama" style="border-radius: 30px;">
+        </div>
+    </section>
+
+    <section class="menu-section" id="menu">
+        <h2 class="section-title">Menu Terfavorit</h2>
+        
+        <div class="menu-container">
+            <div class="menu-card">
+                <div class="menu-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&q=80&w=500" alt="Strawberry Bliss">
+                </div>
+                <div class="menu-info">
+                    <h3>Strawberry Bliss</h3>
+                    <p class="price">Rp 25.000</p>
+                    <button class="btn-order" onclick="orderAlert('Strawberry Bliss')">Pesan Sekarang</button>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <div class="menu-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1628088062854-d1870b4553da?auto=format&fit=crop&q=80&w=500" alt="Choco Melt">
+                </div>
+                <div class="menu-info">
+                    <h3>Choco Lava Melt</h3>
+                    <p class="price">Rp 28.000</p>
+                    <button class="btn-order" onclick="orderAlert('Choco Lava Melt')">Pesan Sekarang</button>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <div class="menu-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&q=80&w=500" alt="Matcha Dream">
+                </div>
+                <div class="menu-info">
+                    <h3>Matcha Kyoto Dream</h3>
+                    <p class="price">Rp 30.000</p>
+                    <button class="btn-order" onclick="orderAlert('Matcha Kyoto Dream')">Pesan Sekarang</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Scoop Bliss. Dibuat dengan penuh rasa manis.</p>
+    </footer>
+
+    <script>
+        // Animasi muncul saat scroll (Scroll Reveal)
+        const cards = document.querySelectorAll('.menu-card');
+        
+        const checkCards = () => {
+            const triggerBottom = window.innerHeight / 5 * 4;
+            
+            cards.forEach(card => {
+                const cardTop = card.getBoundingClientRect().top;
+                
+                if(cardTop < triggerBottom) {
+                    card.classList.add('show');
+                }
+            });
+        };
+
+        // Jalankan saat pertama dimuat dan saat di-scroll
+        window.addEventListener('scroll', checkCards);
+        window.addEventListener('load', checkCards);
+
+        // Fungsi interaktif tombol order
+        function orderAlert(flavor) {
+            alert(Terima kasih! Pesanan Es Krim "${flavor}" sedang disiapkan. 🍦✨);
+        }
+    </script>
+</body>
+</html>
