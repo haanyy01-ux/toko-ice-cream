@@ -336,3 +336,13 @@ footer {
 html {
     scroll-behavior: smooth;
 }
+.audio-section {
+    padding: 60px 8%;
+    text-align: center;
+}
+
+.audio-section audio {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 500px;
+}
