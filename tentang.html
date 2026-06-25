@@ -1,104 +1,177 @@
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tentang Kami - Scoop Bliss</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
     <style>
-        /* Gaya tambahan khusus halaman Tentang Kami */
         .about-container {
-            padding: 150px 8% 80px 8%;
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: center;
+            padding: 140px 8% 80px;
+            max-width: 1100px;
+            margin: auto;
         }
+
+        .about-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .about-subtitle {
+            color: #ff6b8b;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
         .about-img {
             width: 100%;
-            max-width: 600px;
             border-radius: 25px;
-            margin: 30px 0;
-            box-shadow: 0 15px 30px rgba(255, 182, 193, 0.3);
+            margin: 40px 0;
+            box-shadow: 0 15px 35px rgba(255,107,139,0.2);
         }
-        .story-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
+
+        .story-box {
+            background: white;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            margin-bottom: 50px;
+        }
+
+        .story-box p {
+            line-height: 1.9;
             color: #555;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             text-align: justify;
         }
+
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+            gap: 25px;
         }
-        .feature-box {
+
+        .feature-card {
             background: white;
             padding: 30px;
             border-radius: 20px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.02);
-            transition: transform 0.3s;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: 0.3s;
         }
-        .feature-box:hover {
-            transform: translateY(-5px);
+
+        .feature-card:hover {
+            transform: translateY(-8px);
         }
-        .feature-box h3 {
+
+        .feature-card h3 {
             color: #ff477e;
             margin-bottom: 10px;
+        }
+
+        @media(max-width:768px){
+            .about-container{
+                padding-top:120px;
+            }
+
+            .story-box{
+                padding:25px;
+            }
+
+            .story-box p{
+                text-align:left;
+            }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <a href="index.html" class="logo">🍦 Scoop Bliss</a>
-        <ul class="nav-links">
-            <li><a href="index.html">Beranda</a></li>
-            <li><a href="index.html#menu">Menu</a></li>
-            <li><a href="tentang.html" style="color: #ff6b8b; font-weight: 700;">Tentang Kami</a></li>
-            <li><a href="kontak.html">Kontak</a></li>
-        </ul>
-    </header>
+<header>
+    <a href="index.html" class="logo">🍦 Scoop Bliss</a>
 
-    <main class="about-container">
-        <h2 class="section-title">Kisah Scoop Bliss</h2>
-        <p style="font-size: 1.2rem; color: #ff6b8b; font-weight: 500; margin-bottom: 20px;">
-            "Membawa Kebahagiaan Lewat Setiap Sendokan Alami"
+    <ul class="nav-links">
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="index.html#menu">Menu</a></li>
+        <li><a href="tentang.html" style="color:#ff6b8b;font-weight:700;">Tentang Kami</a></li>
+        <li><a href="kontak.html">Kontak</a></li>
+    </ul>
+</header>
+
+<main class="about-container">
+
+    <div class="about-header">
+        <h1 class="section-title">Tentang Scoop Bliss</h1>
+        <p class="about-subtitle">
+            Kebahagiaan Nyata di Setiap Sendokan
         </p>
-        
-        <img src="https://images.unsplash.com/photo-1560008511-11c63416e52d?auto=format&fit=crop&q=80&w=800" alt="Pembuatan Es Krim" class="about-img">
+    </div>
 
-        <div class="story-text">
-            <p style="margin-bottom: 15px;">
-                Scoop Bliss didirikan pada tahun 2026 berawal dari sebuah kegemaran sederhana dalam meracik hidangan penutup yang sehat untuk keluarga. Kami menyadari bahwa es krim di pasaran seringkali menggunakan pemanis buatan dan pewarna kimia yang kurang baik jika dikonsumsi terlalu sering.
-            </p>
-            <p>
-                Oleh karena itu, Scoop Bliss lahir dengan komitmen menggunakan **100% bahan organik premium**, buah-buahan lokal yang segar, tanpa bahan pengawet, serta susu segar bersertifikasi tinggi. Setiap menu kami proses secara higienis dan penuh kasih sayang demi menghasilkan tekstur yang lembut serta rasa manis alami yang pas di lidah.
-            </p>
+    <img
+        src="https://images.unsplash.com/photo-1560008511-11c63416e52d?auto=format&fit=crop&q=80&w=1200"
+        alt="Pembuatan Es Krim"
+        class="about-img"
+    >
+
+    <div class="story-box">
+        <p>
+            Scoop Bliss lahir dari kecintaan terhadap es krim berkualitas tinggi
+            yang dibuat dari bahan-bahan alami pilihan. Kami percaya bahwa
+            makanan penutup tidak hanya harus lezat, tetapi juga dibuat dengan
+            bahan yang baik dan proses yang penuh perhatian.
+        </p>
+
+        <p>
+            Sejak tahun 2026, kami berkomitmen menghadirkan es krim premium
+            dengan menggunakan <strong>100% bahan berkualitas</strong>,
+            susu segar, dan buah-buahan pilihan untuk menghasilkan cita rasa
+            yang lembut, segar, dan autentik.
+        </p>
+
+        <p>
+            Setiap varian rasa kami dirancang untuk memberikan pengalaman yang
+            menyenangkan bagi pelanggan. Dari rasa klasik hingga kreasi unik,
+            semuanya dibuat dengan standar kualitas yang tinggi.
+        </p>
+    </div>
+
+    <h2 class="section-title">Mengapa Memilih Kami?</h2>
+
+    <div class="features-grid">
+
+        <div class="feature-card">
+            <h3>🌱 Bahan Berkualitas</h3>
+            <p>Menggunakan bahan pilihan untuk menjaga rasa dan kualitas terbaik.</p>
         </div>
 
-        <h2 class="section-title" style="margin-top: 60px; font-size: 2rem;">Mengapa Memilih Kami?</h2>
-        <div class="features-grid">
-            <div class="feature-box">
-                <h3>🌱 100% Organik</h3>
-                <p>Menggunakan bahan alami pilihan tanpa tambahan pemanis buatan.</p>
-            </div>
-            <div class="feature-box">
-                <h3>🍓 Buah Segar</h3>
-                <p>Rasa buah asli yang langsung didapatkan dari petani lokal.</p>
-            </div>
-            <div class="feature-box">
-                <h3>🍦 Tekstur Premium</h3>
-                <p>Proses pembuatan khusus yang menjamin kelembutan es krim sempurna.</p>
-            </div>
+        <div class="feature-card">
+            <h3>🍓 Buah Segar</h3>
+            <p>Dibuat dari buah segar pilihan yang memberikan cita rasa alami.</p>
         </div>
-    </main>
 
-    <footer>
-        <p>&copy; 2026 Scoop Bliss. Dibuat dengan penuh rasa manis.</p>
-    </footer>
+        <div class="feature-card">
+            <h3>🍦 Tekstur Premium</h3>
+            <p>Lembut, creamy, dan memanjakan di setiap sendokan.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>❤️ Pelayanan Ramah</h3>
+            <p>Kepuasan pelanggan selalu menjadi prioritas utama kami.</p>
+        </div>
+
+    </div>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 Scoop Bliss. Dibuat dengan penuh rasa manis.</p>
+</footer>
+
+<script src="script.js"></script>
 
 </body>
 </html>
+```
