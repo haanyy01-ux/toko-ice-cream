@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak Kami - Scoop Bliss</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Gaya tambahan khusus halaman Kontak */
+        .contact-container {
+            padding: 150px 8% 80px 8%;
+            display: flex;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .contact-info, .contact-form-wrapper {
+            flex: 1;
+            background: white;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+        .contact-info h2, .contact-form-wrapper h2 {
+            color: #ff477e;
+            margin-bottom: 20px;
+        }
+        .info-item {
+            margin-bottom: 25px;
+        }
+        .info-item h4 {
+            color: #ff6b8b;
+            margin-bottom: 5px;
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ffe3e8;
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: #ff6b8b;
+        }
+        .btn-submit {
+            background-color: #ff6b8b;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn-submit:hover {
+            background-color: #ff477e;
+        }
+
+        /* Responsif untuk layar HP */
+        @media (max-width: 768px) {
+            .contact-container {
+                flex-direction: column;
+                padding-top: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">🍦 Scoop Bliss</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="index.html#menu">Menu</a></li>
+            <li><a href="tentang.html">Tentang Kami</a></li>
+            <li><a href="kontak.html" style="color: #ff6b8b; font-weight: 700;">Kontak</a></li>
+        </ul>
+    </header>
+
+    <main class="contact-container">
+        <div class="contact-info">
+            <h2>Hubungi Kami</h2>
+            <p style="margin-bottom: 30px; color: #666;">Punya pertanyaan, saran, atau ingin memesan untuk acara besar? Sampaikan kepada kami!</p>
+            
+            <div class="info-item">
+                <h4>📍 Alamat Toko</h4>
+                <p>Jl. Manis Selalu No. 45, Kota Kebahagiaan, Indonesia</p>
+            </div>
+            <div class="info-item">
+                <h4>📞 WhatsApp / Telepon</h4>
+                <p>+62 812-3456-7890</p>
+            </div>
+            <div class="info-item">
+                <h4>✉️ Email</h4>
+                <p>halo@scoopbliss.com</p>
+            </div>
+            <div class="info-item">
+                <h4>⏰ Jam Operasional</h4>
+                <p>Setiap Hari: 10.00 - 22.00 WIB</p>
+            </div>
+        </div>
+
+        <div class="contact-form-wrapper">
+            <h2>Kirim Pesan</h2>
+            <form class="contact-form" onsubmit="handleFormSubmit(event)">
+                <input type="text" id="name" placeholder="Nama Lengkap" required>
+                <input type="email" id="email" placeholder="Alamat Email" required>
+                <input type="text" id="subject" placeholder="Subjek / Perihal" required>
+                <textarea id="message" rows="5" placeholder="Tulis pesan Anda di sini..." required></textarea>
+                <button type="submit" class="btn-submit">Kirim Pesan ✨</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Scoop Bliss. Dibuat dengan penuh rasa manis.</p>
+    </footer>
+
+    <script>
+        // Fungsi simulasi pengiriman pesan
+        function handleFormSubmit(event) {
+            event.preventDefault(); // Mencegah reload halaman saat klik submit
+            const nama = document.getElementById('name').value;
+            alert(`Halo ${nama}! Terima kasih telah menghubungi Scoop Bliss. Pesan Anda berhasil dikirim.`);
+            document.querySelector('.contact-form').reset(); // Mengosongkan form kembali
+        }
+    </script>
+</body>
+</html>
