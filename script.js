@@ -55,3 +55,12 @@ window.addEventListener("load", () => {
     revealCards();
     handleHeaderShadow();
 });
+const music = document.getElementById("bgMusic");
+
+document.addEventListener("click", () => {
+    if (music) {
+        music.play().catch(() => {
+            console.log("User belum interaksi halaman");
+        });
+    }
+}, { once: true });
