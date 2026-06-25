@@ -336,13 +336,45 @@ footer {
 html {
     scroll-behavior: smooth;
 }
-.audio-section {
-    padding: 60px 8%;
-    text-align: center;
+/* =========================
+   MUSIC BAR
+========================= */
+
+.music-bar {
+    margin-top: 90px;
+    padding: 15px 8%;
 }
 
-.audio-section audio {
-    margin-top: 20px;
-    width: 100%;
-    max-width: 500px;
+.music-container {
+    background: white;
+    border-radius: 20px;
+    padding: 15px 20px;
+    box-shadow: 0 8px 20px rgba(255, 182, 193, 0.25);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.music-container span {
+    font-weight: 600;
+    color: #ff477e;
+}
+
+.music-container audio {
+    width: 350px;
+}
+
+@media (max-width: 768px) {
+
+    .music-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .music-container audio {
+        width: 100%;
+    }
+
 }
