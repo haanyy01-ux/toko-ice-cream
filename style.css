@@ -301,3 +301,11 @@ footer {
         width: 100%;
     }
 }
+.hero-image img{
+    width: 450px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.15);
+}
