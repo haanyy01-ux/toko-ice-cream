@@ -1,4 +1,6 @@
-/* --- RESET & FONTS --- */
+/* =========================
+   RESET & BASE
+========================= */
 * {
     margin: 0;
     padding: 0;
@@ -12,7 +14,13 @@ body {
     overflow-x: hidden;
 }
 
-/* --- ANIMATIONS --- */
+html {
+    scroll-behavior: smooth;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
 @keyframes float {
     0% { transform: translateY(0px); }
     50% { transform: translateY(-15px); }
@@ -24,25 +32,21 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
-
-/* --- NAVBAR --- */
+/* =========================
+   HEADER
+========================= */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 8%;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255,255,255,0.8);
     backdrop-filter: blur(10px);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 20px rgba(255, 182, 193, 0.2);
+    box-shadow: 0 4px 20px rgba(255,182,193,0.2);
 }
 
 .logo {
@@ -62,74 +66,71 @@ header {
     text-decoration: none;
     color: #555;
     font-weight: 500;
-    transition: color 0.3s;
+    transition: 0.3s;
 }
 
 .nav-links a:hover {
     color: #ff6b8b;
 }
 
-/* --- HERO SECTION --- */
+/* =========================
+   HERO
+========================= */
 .hero {
     min-height: 100vh;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     padding: 0 8%;
     padding-top: 100px;
-    background: linear-gradient(135deg, #fff5f7 0%, #ffe3e8 100%);
+    background: linear-gradient(135deg,#fff5f7,#ffe3e8);
 }
 
 .hero-text {
     max-width: 50%;
-    animation: fadeIn 1s ease-out;
+    animation: fadeIn 1s ease;
 }
 
 .hero-text h1 {
     font-size: 3.5rem;
     color: #ff477e;
-    line-height: 1.2;
-    margin-bottom: 20px;
 }
 
 .hero-text p {
-    font-size: 1.1rem;
-    margin-bottom: 30px;
+    margin: 20px 0;
     line-height: 1.6;
 }
 
 .btn-cta {
     display: inline-block;
     padding: 15px 35px;
-    background-color: #ff6b8b;
+    background: #ff6b8b;
     color: white;
-    text-decoration: none;
     border-radius: 50px;
+    text-decoration: none;
     font-weight: 600;
-    box-shadow: 0 8px 15px rgba(255, 107, 139, 0.3);
-    transition: all 0.3s ease;
+    transition: 0.3s;
 }
 
 .btn-cta:hover {
+    background: #ff477e;
     transform: translateY(-3px);
-    box-shadow: 0 12px 20px rgba(255, 107, 139, 0.5);
-    background-color: #ff477e;
 }
 
 .hero-image {
     max-width: 45%;
-    display: flex;
-    justify-content: center;
-    animation: float 4s ease-in-out infinite;
+    animation: float 4s infinite ease-in-out;
 }
 
 .hero-image img {
     width: 100%;
     max-width: 400px;
-    filter: drop-shadow(10px 15px 25px rgba(0,0,0,0.15));
+    border-radius: 30px;
 }
 
-/* --- MENU SECTION --- */
+/* =========================
+   MENU
+========================= */
 .menu-section {
     padding: 100px 8%;
     text-align: center;
@@ -139,12 +140,11 @@ header {
     font-size: 2.5rem;
     color: #ff477e;
     margin-bottom: 50px;
-    position: relative;
 }
 
 .menu-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
     gap: 40px;
 }
 
@@ -153,64 +153,48 @@ header {
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    transition: all 0.3s ease;
     opacity: 0;
     transform: translateY(40px);
+    transition: 0.3s;
 }
 
-/* Kelas ini dipicu oleh JavaScript saat di-scroll */
 .menu-card.show {
     opacity: 1;
     transform: translateY(0);
 }
 
 .menu-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(255, 182, 193, 0.4);
+    transform: translateY(-10px);
 }
 
 .menu-img-wrapper {
-    overflow: hidden;
     height: 250px;
+    overflow: hidden;
 }
 
 .menu-card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.menu-card:hover img {
-    transform: scale(1.1);
 }
 
 .menu-info {
-    padding: 25px;
-}
-
-.menu-info h3 {
-    font-size: 1.5rem;
-    color: #333;
-    margin-bottom: 10px;
+    padding: 20px;
 }
 
 .price {
     color: #ff6b8b;
-    font-weight: 700;
-    font-size: 1.2rem;
-    margin-bottom: 15px;
+    font-weight: bold;
 }
 
 .btn-order {
+    margin-top: 10px;
     padding: 8px 20px;
-    background: transparent;
     border: 2px solid #ff6b8b;
+    background: transparent;
     color: #ff6b8b;
     border-radius: 20px;
     cursor: pointer;
-    font-weight: 600;
-    transition: all 0.3s;
 }
 
 .btn-order:hover {
@@ -218,128 +202,36 @@ header {
     color: white;
 }
 
-/* --- FOOTER --- */
-footer {
-    background-color: #ff477e;
-    color: white;
-    text-align: center;
-    padding: 30px;
-    margin-top: 50px;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    header { padding: 20px 5%; }
-    .nav-links { display: none; } 
-    .hero { flex-direction: column; text-align: center; padding: 120px 5% 50px 5%; }
-    .hero-text { max-width: 100%; order: 2; }
-    .hero-image { max-width: 80%; order: 1; margin-bottom: 40px; }
-    .hero-text h1 { font-size: 2.5rem; }
-}
 /* =========================
-   TENTANG KAMI
+   ABOUT & CONTACT (GENERAL FIX)
 ========================= */
-.about-section {
-    padding: 100px 8%;
-    background: #ffffff;
-    text-align: center;
-}
-
-.about-content {
-    max-width: 900px;
-    margin: auto;
-}
-
-.about-content p {
-    font-size: 1.1rem;
-    line-height: 1.9;
-    margin-bottom: 20px;
-    color: #666;
-}
-
-.about-features {
-    margin-top: 50px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-    gap: 25px;
-}
-
-.feature-card {
-    background: #fff5f7;
-    padding: 30px;
-    border-radius: 20px;
-    transition: 0.3s;
-}
-
-.feature-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 25px rgba(255,107,139,0.2);
-}
-
-.feature-card h3 {
-    color: #ff477e;
-    margin-bottom: 10px;
-}
-
-/* =========================
-   KONTAK
-========================= */
+.about-section,
 .contact-section {
     padding: 100px 8%;
-    background: linear-gradient(
-        135deg,
-        #fff5f7,
-        #ffe6ee
-    );
     text-align: center;
 }
 
-.contact-container {
-    max-width: 800px;
-    margin: auto;
-}
-
-.contact-card {
+.about-section {
     background: white;
-    padding: 40px;
-    border-radius: 25px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
-.contact-item {
-    margin: 20px 0;
-    font-size: 1.1rem;
+.contact-section {
+    background: linear-gradient(135deg,#fff5f7,#ffe6ee);
 }
 
-.contact-item strong {
-    color: #ff477e;
-}
-
-.contact-btn {
-    margin-top: 25px;
-    display: inline-block;
-    padding: 15px 30px;
-    background: #ff6b8b;
-    color: white;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-.contact-btn:hover {
+/* =========================
+   FOOTER
+========================= */
+footer {
     background: #ff477e;
-    transform: translateY(-3px);
+    color: white;
+    text-align: center;
+    padding: 30px;
 }
 
-/* Smooth Scroll */
-html {
-    scroll-behavior: smooth;
-}
 /* =========================
    MUSIC BAR
 ========================= */
-
 .music-bar {
     margin-top: 90px;
     padding: 15px 8%;
@@ -347,51 +239,54 @@ html {
 
 .music-container {
     background: white;
-    border-radius: 20px;
     padding: 15px 20px;
-    box-shadow: 0 8px 20px rgba(255, 182, 193, 0.25);
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(255,182,193,0.25);
 
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    gap: 20px;
+    align-items: center;
 }
 
 .music-container span {
-    font-weight: 600;
     color: #ff477e;
+    font-weight: 600;
 }
 
 .music-container audio {
     width: 350px;
 }
 
-@media (max-width: 768px) {
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width:768px) {
+    header { padding: 15px 5%; }
+
+    .nav-links { display: none; }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 120px;
+    }
+
+    .hero-text {
+        max-width: 100%;
+    }
+
+    .hero-image {
+        max-width: 80%;
+        margin-top: 30px;
+    }
 
     .music-container {
         flex-direction: column;
         text-align: center;
+        gap: 10px;
     }
 
     .music-container audio {
         width: 100%;
-    }
-
-}
-const music = document.getElementById("bgMusic");
-let isPlaying = false;
-
-function toggleMusic() {
-    if (isPlaying) {
-        music.pause();
-        isPlaying = false;
-    } else {
-        music.play()
-            .then(() => {
-                isPlaying = true;
-            })
-            .catch(err => {
-                alert("Klik halaman dulu baru bisa play musik 🎵");
-            });
     }
 }
