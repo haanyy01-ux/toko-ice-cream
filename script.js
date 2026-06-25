@@ -1,23 +1,39 @@
-// Animasi muncul saat scroll (Scroll Reveal)
-const cards = document.querySelectorAll('.menu-card');
+// Tombol pesan
+function orderAlert(menu) {
+    alert(
+        "Terima kasih telah memilih " +
+        menu +
+        " 🍦\nPesanan Anda sedang diproses."
+    );
+}
 
-const checkCards = () => {
-    const triggerBottom = window.innerHeight / 5 * 4;
-    
+// Animasi card saat scroll
+const cards = document.querySelectorAll(".menu-card");
+
+function revealCards() {
+    const trigger = window.innerHeight * 0.85;
+
     cards.forEach(card => {
-        const cardTop = card.getBoundingClientRect().top;
-        
-        if(cardTop < triggerBottom) {
-            card.classList.add('show');
+        const top = card.getBoundingClientRect().top;
+
+        if (top < trigger) {
+            card.classList.add("show");
         }
     });
-};
-
-// Jalankan saat pertama dimuat dan saat di-scroll
-window.addEventListener('scroll', checkCards);
-window.addEventListener('load', checkCards);
-
-// Fungsi interaktif tombol order
-function orderAlert(flavor) {
-    alert(`Terima kasih! Pesanan Es Krim "${flavor}" sedang disiapkan. 🍦✨`);
 }
+
+window.addEventListener("scroll", revealCards);
+window.addEventListener("load", revealCards);
+
+// Navbar shadow saat scroll
+window.addEventListener("scroll", () => {
+    const header = document.querySelector("header");
+
+    if (window.scrollY > 50) {
+        header.style.boxShadow =
+            "0 6px 20px rgba(0,0,0,0.12)";
+    } else {
+        header.style.boxShadow =
+            "0 4px 20px rgba(255,182,193,0.2)";
+    }
+});
