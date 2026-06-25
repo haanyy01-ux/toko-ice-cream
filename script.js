@@ -44,6 +44,29 @@ function handleHeaderShadow() {
 }
 
 /* =========================
+   BACKGROUND MUSIC (SAFE)
+   - tidak akan error kalau elemen tidak ada
+========================= */
+const music = document.getElementById("bgMusic");
+
+function tryPlayMusic() {
+    if (!music) return;
+
+    music.play().catch(() => {
+        console.log("Autoplay diblokir browser, tunggu interaksi user");
+    });
+}
+
+// Play musik setelah user klik pertama kali
+document.addEventListener(
+    "click",
+    () => {
+        tryPlayMusic();
+    },
+    { once: true }
+);
+
+/* =========================
    INIT EVENTS
 ========================= */
 window.addEventListener("scroll", () => {
@@ -55,12 +78,3 @@ window.addEventListener("load", () => {
     revealCards();
     handleHeaderShadow();
 });
-const music = document.getElementById("bgMusic");
-
-document.addEventListener("click", () => {
-    if (music) {
-        music.play().catch(() => {
-            console.log("User belum interaksi halaman");
-        });
-    }
-}, { once: true });
