@@ -1,6 +1,9 @@
 /* =========================
    RESET & BASE
 ========================= */
+body {
+    padding-top: 80px;
+}
 * {
     margin: 0;
     padding: 0;
@@ -233,10 +236,10 @@ footer {
    MUSIC BAR
 ========================= */
 .music-bar {
-    margin-top: 90px;
-    padding: 15px 8%;
+    padding: 110px 8% 15px; /* INI KUNCI FIX */
+    position: relative;
+    z-index: 10;
 }
-
 .music-container {
     background: white;
     padding: 15px 20px;
@@ -280,11 +283,19 @@ footer {
         margin-top: 30px;
     }
 
-    .music-container {
-        flex-direction: column;
-        text-align: center;
-        gap: 10px;
-    }
+   .music-container {
+    background: white;
+    border-radius: 20px;
+    padding: 15px 20px;
+    box-shadow: 0 8px 20px rgba(255, 182, 193, 0.25);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: relative;
+    z-index: 20;
+}
 
     .music-container audio {
         width: 100%;
