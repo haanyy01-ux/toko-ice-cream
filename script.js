@@ -1,16 +1,22 @@
-// Tombol pesan
+"use strict";
+
+/* =========================
+   ORDER ALERT
+========================= */
 function orderAlert(menu) {
     alert(
-        "Terima kasih telah memilih " +
-        menu +
-        " 🍦\nPesanan Anda sedang diproses."
+        `Terima kasih telah memilih ${menu} 🍦\nPesanan Anda sedang diproses.`
     );
 }
 
-// Animasi card saat scroll
+/* =========================
+   MENU CARD ANIMATION
+========================= */
 const cards = document.querySelectorAll(".menu-card");
 
 function revealCards() {
+    if (!cards.length) return;
+
     const trigger = window.innerHeight * 0.85;
 
     cards.forEach(card => {
@@ -22,18 +28,30 @@ function revealCards() {
     });
 }
 
-window.addEventListener("scroll", revealCards);
-window.addEventListener("load", revealCards);
+/* =========================
+   HEADER SHADOW ON SCROLL
+========================= */
+const header = document.querySelector("header");
 
-// Navbar shadow saat scroll
-window.addEventListener("scroll", () => {
-    const header = document.querySelector("header");
+function handleHeaderShadow() {
+    if (!header) return;
 
     if (window.scrollY > 50) {
-        header.style.boxShadow =
-            "0 6px 20px rgba(0,0,0,0.12)";
+        header.style.boxShadow = "0 6px 20px rgba(0,0,0,0.12)";
     } else {
-        header.style.boxShadow =
-            "0 4px 20px rgba(255,182,193,0.2)";
+        header.style.boxShadow = "0 4px 20px rgba(255,182,193,0.2)";
     }
+}
+
+/* =========================
+   INIT EVENTS
+========================= */
+window.addEventListener("scroll", () => {
+    revealCards();
+    handleHeaderShadow();
+});
+
+window.addEventListener("load", () => {
+    revealCards();
+    handleHeaderShadow();
 });
